@@ -37,7 +37,7 @@ if integers:
 
 
 # condition de convertibilité entre une str et une str convertible
-s = "-54"
+s = "-53"
 s = s.strip()
 # if s.isnumeric() or ( s[0] == "-" and s[1:].isnumeric() ):
 if s.isnumeric() or ( s.startswith("-") and s[1:].isnumeric() ):
