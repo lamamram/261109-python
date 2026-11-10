@@ -24,11 +24,15 @@ for valeur in valeurs:
         )
     ):
         integers.append(int(valeur))
+    else:
+        print(f"{valeur} n'est pas convertible !")
+        break
 
 # if len(integers) != 0:
-if integers:
-    avg = round(sum(integers) / len(integers), 2)
-    print(f"La moyenne de {integers} est {avg:.2f}")
+else:
+    if integers:
+        avg = round(sum(integers) / len(integers), 2)
+        print(f"La moyenne de {integers} est {avg:.2f}")
 
 
 
