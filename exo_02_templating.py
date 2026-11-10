@@ -10,22 +10,51 @@ Hint: regarder la fonction str.replace
 par la clé correspondante si celle ci existe ou par N/A
 """
 
-_template = """
-robinet.pression=((pression))
+_template = """robinet.pression=((pression))
 robinet.section=((section))
 robinet.debit=((debit))
-robinet.capacite=((capacite))
-"""
+robinet.capacite=((capacite))"""
 
 injections = {
-    "pression": "500",
-    "section": "30",
-    "debit": "2"
+    "pression": 500,
+    "section": 30,
+    "debit": 2
 }
 
-# %%
+# %% ------------------- écraser des fonctions /  classes globales comme un sagouin ------------
+_id = 1
+_print = 'bonjour'
+_str = 3.14
 
+"""
+EN PYTHON ON FAIT ATTENTION AUX NOMS DES VARIABLES !!!!!!
+"""
 
+# %% ----------------------- trouver les clés à partir des ((  )) ---------------
+# 1/
+while "((" in _template:
+    start_index = _template.index("((") + 2
+    end_index = _template.index("))")
+    key = _template[start_index:end_index]
+
+    # 2/
+    _template = _template.replace("((" + key + "))", str(injections.get(key, "N/A")))
+
+print(_template)
+# %% ---------------------- for 
+
+for k, v in injections.items():
+    _template = _template.replace("((" + k + "))", str(injections[k]))
+
+# %% --------------------- spliter selon les sauts de lignes -------
+lines = []
+for line in _template.splitlines():
+    start_index = line.index("((") + 2
+    end_index = line.index("))")
+    key = line[start_index:end_index]
+    lines.append(line.replace("((" + key + "))", str(injections.get(key, "N/A"))))
+
+"\n".join(lines)
 # %% ----- portage de la cellule précédente en fonction ----------
 """
 technique
