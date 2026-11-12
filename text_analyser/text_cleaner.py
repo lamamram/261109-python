@@ -1,6 +1,7 @@
 from string import punctuation
 import re
 
+
 class Cleaner:
     def __init__(self, text: str):
         self.__text = text
@@ -39,3 +40,28 @@ class Cleaner:
         self.__clean_spaces()
         self.__clean_little_words()
         return self.__text.lower()
+
+    @classmethod
+    def nimp_statique_methode_dans_une_classe_concrete(cls, *args, **kwars):
+        """
+        méthode uniquement utilisable que par la classe !!!
+        """
+        pass
+
+
+class StaticCleaner:
+        """
+        pas d'instanciation car pas d'état
+        """
+        @staticmethod
+        def __clean_punctuation(text) -> str:
+            return re.sub(pattern=f"[{punctuation}]", repl=" ", string=text)
+
+        @staticmethod
+        def clean(text: str) -> str:
+            text = StaticCleaner.__clean_punctuation(text)
+            # text = StaticCleaner.__clean_crlf(text)
+            # text = StaticCleaner.__clean_spaces(text)
+            # text = StaticCleaner.__clean_little_words(text)
+            return text.lower()
+

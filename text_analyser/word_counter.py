@@ -1,7 +1,7 @@
 ## les imports inter-package sont calculés depuis le package (la racine ou .venv si installé via pip)
 # from text_analyser.text_cleaner import Cleaner
 ## ou à la rigueur avec un pseudo chemin relatif
-from .text_cleaner import Cleaner
+from .text_cleaner import Cleaner, StaticCleaner
 
 class Counter:
     ### version aggrégation <=> injection de dép.
@@ -11,6 +11,9 @@ class Counter:
     ### version composition <=> couplage fort
     # def __init__(self, text: str):
     #     self.__text = Cleaner(text).clean()
+
+    ### version statique
+    # self.__text = StaticCleaner.clean(text)
 
     def get_occurences(self) -> dict:
         """
