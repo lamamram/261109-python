@@ -14,7 +14,7 @@ class Counter:
 
     def get_occurences(self) -> dict:
         """
-        1. alimenter un dicp à partir de self.__text pour en faire un dictionnaire d'occurence 
+        1. alimenter un dico à partir de self.__text pour en faire un dictionnaire d'occurence 
            {"motA": x, "motB": y, ....}
            algo: en parcourant le texte, on regarde si un mot a déjà été ajouté dans le dico
               => +1
@@ -22,3 +22,8 @@ class Counter:
         2. comment je peux trier un dictionnaire ?
         """
         dico = {}
+        for word in self.__text.split():
+            if word in dico:
+                dico[word] += 1
+            else:
+                dico[word] = 1
