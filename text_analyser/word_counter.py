@@ -11,3 +11,14 @@ class Counter:
     ### version composition <=> couplage fort
     # def __init__(self, text: str):
     #     self.__text = Cleaner(text).clean()
+
+    def get_occurences(self) -> dict:
+        """
+        1. alimenter un dicp à partir de self.__text pour en faire un dictionnaire d'occurence 
+           {"motA": x, "motB": y, ....}
+           algo: en parcourant le texte, on regarde si un mot a déjà été ajouté dans le dico
+              => +1
+              sinon je le créé dans le dico
+        2. comment je peux trier un dictionnaire ?
+        """
+        dico = {}
