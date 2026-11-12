@@ -1,3 +1,4 @@
+# %%
 """
 1. créer un package (dossier) "text_analyser"
 2. ajouter 2 modules "text_cleaner.py" et "word_counter.py"
@@ -18,7 +19,7 @@
 
 5. écrire le programme principal pour utiliser le package
 """
-
+from text_analyser.text_cleaner import Cleaner
 
 if __name__ == "__main__":
   text = """
@@ -40,7 +41,8 @@ Il est conçu pour optimiser la productivité des programmeurs en offrant des ou
 une syntaxe simple à utiliser. 
 """
 
-# tc.Cleaner()
+cleaner = Cleaner(text)
+print(cleaner.clean())
 
 ########### techniques d'associations possibles entre classes ###############
 ## 1. deux classes indédenpantes
@@ -61,3 +63,5 @@ une syntaxe simple à utiliser.
 ## 3. aggrégation: couplage faible et injection de dépendances
 
 
+
+# %%
