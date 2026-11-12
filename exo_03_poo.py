@@ -19,7 +19,11 @@
 
 5. écrire le programme principal pour utiliser le package
 """
-from text_analyser.text_cleaner import Cleaner
+# from text_analyser.text_cleaner import Cleaner
+# from text_analyser.word_counter import Counter
+
+# import depuis le package uniquement si les vrais imports sont dans __init__.py !!!
+from text_analyser import Counter, Cleaner
 
 if __name__ == "__main__":
   text = """
@@ -41,8 +45,14 @@ Il est conçu pour optimiser la productivité des programmeurs en offrant des ou
 une syntaxe simple à utiliser. 
 """
 
+# cas couplage faible
 cleaner = Cleaner(text)
-print(cleaner.clean())
+counter = Counter(cleaner=cleaner)
+
+# cas couplage fort
+# counter = Counter(text=text)
+
+# print(cleaner.clean())
 
 ########### techniques d'associations possibles entre classes ###############
 ## 1. deux classes indédenpantes
