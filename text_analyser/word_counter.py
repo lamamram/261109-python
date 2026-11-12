@@ -27,3 +27,9 @@ class Counter:
                 dico[word] += 1
             else:
                 dico[word] = 1
+
+        return dict(sorted(
+            dico.items(), 
+            key=lambda tup: tup[1], 
+            reverse=True
+        )[:5])

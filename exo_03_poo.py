@@ -49,6 +49,7 @@ une syntaxe simple à utiliser.
 cleaner = Cleaner(text)
 counter = Counter(cleaner=cleaner)
 
+counter.get_occurences()
 # cas couplage fort
 # counter = Counter(text=text)
 
